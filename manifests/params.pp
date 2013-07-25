@@ -16,6 +16,13 @@ class memcached::params {
       $config_tmpl      = "$module_name/memcached_sysconfig.erb"
       $user             = 'memcached'
     }
+    'Gentoo': {
+      $package_name     = 'memcached'
+      $service_name     = 'memcached'
+      $config_file      = '/etc/conf.d/memcached'
+      $config_tmpl      = "$module_name/memcached.gentoo.erb"
+      $user             = 'memcached'
+    }
     default: {
       fail("Unsupported platform: ${::osfamily}")
     }
